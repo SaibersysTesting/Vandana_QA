@@ -1,0 +1,41 @@
+package Dropdown;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class DropdownTesting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.web.com/ecommerce");
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//img[@src='/images/BlueHeader/nav-websites.png']")).click();
+		
+		List<String> allLinks = new ArrayList<String>();
+		List<WebElement> linksList = driver.findElements(By.xpath(".//*[@id='nav-main']/li[1]/div/ul/li/a"));
+		
+		System.out.println(linksList.size());
+		
+		for(int i=0; i<linksList.size(); i++){
+			String singleLink = linksList.get(i).getAttribute("href");
+			allLinks.add(singleLink);
+			System.out.println(singleLink);
+		}
+		
+		for(int i=0;i<linksList.size();i++){
+			driver.navigate().to(allLinks.get(i));
+			driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+		}
+		
+		driver.quit();
+	}
+
+}
