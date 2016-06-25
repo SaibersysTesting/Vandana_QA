@@ -1,0 +1,71 @@
+package datareadingtestngpackage;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+import frameworkspackage.DatabaseReading;
+import frameworkspackage.ExcelReading;
+
+public class DataReadingTestNGFile {
+	@Test
+	public void datReadingFromExcel() throws IOException {
+		// WebDriver driver = new FirefoxDriver();
+		ExcelReading excelReading = new ExcelReading();
+		String[][] accountCredentials = excelReading.excelReading();
+		for (int i = 0; i < accountCredentials.length; i++) {
+			for (int j = 0; j < accountCredentials[0].length; j++) {
+				executeExcel(accountCredentials[i][j], accountCredentials[i][++j]);
+			}
+		}
+	}
+
+	public void executeExcel(String username, String password) throws IOException {
+
+		WebDriver driver = new FirefoxDriver();
+
+		driver.get("https://www.gmail.com");
+
+		driver.findElement(By.id("Email")).sendKeys(username);
+		// clicks on next button.
+		driver.findElement(By.id("next")).click();
+		// To avoid synchronization problem.
+		driver.manage().timeouts().implicitlyWait(30000, TimeUnit.SECONDS);
+		// Enters password
+		driver.findElement(By.id("Passwd")).sendKeys(password);
+		// clicks on sign in button
+		driver.findElement(By.id("signIn")).click();
+		// to click on logout icon
+		driver.findElement(By.xpath(".//span[@class='gb_Za gbii']")).click();
+		// to click on signout button.
+		driver.findElement(By.linkText("Sign out")).click();
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+		// to clear cache
+		driver.manage().deleteAllCookies();
+		driver.navigate().to("https://www.gmail.com");
+	}
+
+	@Test
+	public void dataReadingFromDataBase() throws ClassNotFoundException, SQLException {
+		DatabaseReading data = new DatabaseReading();
+		List<String> employeeDetails = data.dataBaseConnection();
+		int j = 1;
+		for (int i = 0; i < employeeDetails.size(); i++) {
+			executeDataBase(employeeDetails.get(i), employeeDetails.get(j));
+			i++;
+			j += 2;
+		}
+	}
+
+	public void executeDataBase(String name, String age) {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("file:///C:/Users/ragar/Desktop/MyWebSite.html");
+		driver.findElement(By.xpath(".//*[@id='text1']")).sendKeys(name);
+		driver.findElement(By.xpath(".//*[@id='text2']")).sendKeys(age);
+		driver.close();
+	}
+}
