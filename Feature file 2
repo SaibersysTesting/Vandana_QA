@@ -1,0 +1,9 @@
+Feature : Draw money from an ATM using debit card
+
+Scenario : Vandana tries to draw money
+
+Given with an ATM card
+
+When Vandana tries to draw cash
+
+Then ATM prompts to enter a PIN number
