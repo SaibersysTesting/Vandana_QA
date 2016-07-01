@@ -1,0 +1,15 @@
+Feature: Sell medicines `
+
+In order to earn money
+
+Patient should be able to buy medicines at all times
+
+Scenario : Buy medicine
+
+Given a Prescription
+
+And required money
+
+When patient has both
+
+Then I will provide medicine
