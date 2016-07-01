@@ -1,0 +1,11 @@
+Scenario : User tries to login into Facebook
+
+Given The user is on Facebook login page
+
+When he chooses to login
+
+And user provides email address ( eg: abc@gmail.com)
+
+And password
+
+Then user should be able to login and use facebook
