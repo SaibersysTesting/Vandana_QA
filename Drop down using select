@@ -1,0 +1,29 @@
+package dropdown;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDownTest {
+
+	public static void main(String[] args) {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://newtours.demoaut.com/mercuryregister.php");
+		driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+		List<WebElement> dropDownElement = driver.findElements(By.xpath(".//select//option"));
+		Select dropCountry = new Select(driver.findElement(By.name("country")));
+		
+		System.out.println(dropDownElement.size());
+		
+		for(int i=0; i<dropDownElement.size(); i++){
+			System.out.println(i +")"+ dropDownElement.get(i).getText());
+			dropCountry.selectByIndex(i);
+		}
+	}
+
+}
