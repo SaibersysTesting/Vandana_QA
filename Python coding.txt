@@ -1,0 +1,167 @@
+Sample Python Code with simple examples:
+
+First Program: 
+
+print "hello, world!"
+
+Assigning name to a value:
+
+>>> x = 4
+>>> x * x
+16
+
+Swapping two values:
+
+>>> a, b = 1, 2
+>>> a, b = b, a
+>>> a
+2
+>>> b
+1
+
+Adding two numbers: 
+
+x, y = 2, 6
+x, y = y, x + 2
+print x, y
+
+Mathematical operations on numbers:
+
+>>> 7 + 2
+9
+>>> 7 - 2
+5
+>>> 7 * 2
+14
+>>> 7 / 2
+3
+>>> 7 ** 2
+49
+>>> 7 % 2
+1
+
+Using operators:
+
+>>> 7.0 / 2.0
+3.5
+>>> 7.0 / 2
+3.5
+>>> 7 / 2.0
+3.5
+
+Using Strings: 
+
+>>> x = "hello"
+>>> y = 'world'
+>>> print x, y
+hello world
+
+Mathematical Functions:
+
+>>> def square(x):
+    return x * x
+
+>>> square(5)
+25
+
+Incremental Function:
+
+x = 0
+y = 0
+def incr(x):
+    y = x + 1
+    return y
+incr(5)
+print x, y
+
+Area of a circle:
+
+pi = 3.14
+def area(r):
+    return pi * r * r
+
+Using Global variables:
+
+numcalls = 0
+def square(x):
+    global numcalls
+    numcalls = numcalls + 1
+    return x * x
+
+Built in functions:
+
+>>> min(2, 3)
+2
+>>> max(3, 4)
+4
+
+Length of a string:
+
+>>> len("helloworld")
+10
+
+Count function:
+
+>>> count_digits(5)
+1
+>>> count_digits(12345)
+5
+
+Upper Method
+
+>>> x = "hello"
+>>> print x.upper()
+HELLO
+
+Comparison of strings:
+
+>>> istrcmp('python', 'Python')
+True
+>>> istrcmp('LaTeX', 'Latex')
+True
+>>> istrcmp('a', 'b')
+False
+
+
+Comparison of values using operators
+
+>>> x = 5
+>>> 2 < x < 10
+True
+>>> 2 < 3 < 4 < 5 < 6
+True
+
+If statement:
+
+>>> x = 42
+>>> if x % 2 == 0: print 'even'
+even
+>>>
+
+
+If else :
+
+>>> x = 3
+>>> if x % 2 == 0:
+...     print 'even'
+... else:
+...     print 'odd'
+...
+odd
+>>>
+
+
+Else if :
+
+>>> x = 42
+>>> if x < 10:
+...        print 'one digit number'
+... elif x < 100:
+...     print 'two digit number'
+... else:
+...     print 'big number'
+...
+two digit number
+>>>
+
+
