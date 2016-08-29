@@ -1,0 +1,52 @@
+Feature: Hello Cucumber
+As a product manager
+I want our users to be greeted when they visit our site
+So that they have a better experience
+
+Scenario: User sees the welcome message
+When I go to the homepage
+Then I should see the welcome message
+
+
+
+
+////////////////////////////////////////////////////////////////////
+
+
+
+Feature: Link Click
+
+@javascript
+Scenario: User clicks the link
+Given I am on the homepage
+When I click the provided link
+Then I should see the link click confirmation
+
+
+////////////////////////////////
+
+
+Given(/^I am on the homepage$/) do
+  visit root_path
+end
+
+When(/^I click the provided link$/) do
+  click_on "js-click-me"
+end
+
+Then(/^I should see the link click confirmation$/) do
+  expect(page).to have_content("Link Clicked")
+endGiven(/^I am on the homepage$/) do
+  visit root_path
+end
+
+When(/^I click the provided link$/) do
+  click_on "js-click-me"
+end
+
+Then(/^I should see the link click confirmation$/) do
+  expect(page).to have_content("Link Clicked")
+end
+
+
+//////////////////////////////////////////
