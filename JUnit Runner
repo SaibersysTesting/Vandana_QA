@@ -1,0 +1,23 @@
+import cucumber.api.junit.Cucumber;</pre>
+import org.junit.runner.RunWith;
+@RunWith(Cucumber.class)
+
+@Cucumber.Options(format={"SimpleHtmlReport:report/smokeTest.html"},tags={"@smokeTest"})
+
+Public class JUnitRunner {
+
+}
+
+
+/////////////////////////////////////////////////////////////////
+
+
+import cucumber.api.junit.Cucumber;
+
+ import org.junit.runner.RunWith;
+ @RunWith(Cucumber.class)
+ @Cucumber.Options(format={"SimpleHtmlReport:report/smokeTest.html"},tags={"@smokeTest",”@LoginTest”})
+ Public class JUnitRunner {
+}
+
+
