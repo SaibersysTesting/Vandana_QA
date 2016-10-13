@@ -1,0 +1,31 @@
+Joins Basic Queries Examples: 
+
+Inner Join: 
+
+select * from dbo.Students S INNER JOIN dbo.Advisors A ON S.Advisor_ID=A.Advisor_ID
+
+
+Outer Joins: 
+
+select * from dbo.Students S LEFT OUTER JOIN dbo.Advisors A ON S.Advisor_ID=A.Advisor_ID
+
+
+Full Outer Join:
+
+select * from dbo.Students S FULL OUTER JOIN dbo.Advisors A ON S.Advisor_ID=A.Advisor_ID
+
+
+
+
+To get rows that donot join
+
+select * from dbo.Students S FULL OUTER JOIN dbo.Advisors A ON S.Advisor_ID=A.Advisor_ID where A.Advisor_ID is null or S.Student_ID is null
+
+
+
+
+
+To get rows form only one table which do not join
+
+select * from dbo.Students S FULL OUTER JOIN dbo.Advisors A ON S.Advisor_ID=A.Advisor_ID where A.Advisor_ID is null or S.Student_ID is null
+
